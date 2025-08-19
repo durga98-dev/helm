@@ -1,0 +1,28 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+ name: nginx-deployment
+ # Labels of deployment resource
+ labels:
+   app: nginx
+   tier: frontend
+   purpose: deployment
+spec:
+ replicas: 3
+ selector:
+   matchLabels:
+     app: nginx
+     tier: frontend
+     purpose: deployment
+ template:
+   metadata:
+     labels:
+       app: nginx
+       tier: frontend
+       purpose: deployment
+   spec:
+     containers:
+     - name: nginx
+       image: durga98/deployment:2.0
+       ports:
+       - containerPort: 80
