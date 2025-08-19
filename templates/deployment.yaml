@@ -23,6 +23,6 @@ spec:
    spec:
      containers:
      - name: nginx
-       image: durga98/{{ .Values.deployment.imageVersion }} # Version will be changing frequently
+       image: {{ .Values.deployment.imageVersion }} # Version will be changing frequently
        ports:
        - containerPort: 80
